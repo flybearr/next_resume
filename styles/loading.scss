@@ -1,0 +1,67 @@
+.cercle {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    opacity: 0;
+    font-size: 2rem;
+    color: white;
+  }
+  @for $i from 1 through 10 {
+    .font#{$i} {
+      animation: font_Animation 0.3s forwards;
+      animation-delay: calc(#{$i}* 0.3s);
+    }
+  }
+}
+
+.cercle::before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  bottom: 100px;
+  border: 20px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #ff3838, /*外圈光暈*/ inset 0 0 50px #8eb6ff; /*內圈光暈*/
+  -webkit-box-reflect: below 10px
+    linear-gradient(transparent, transparent, #0002); /*倒影，數字好像不是色碼，好像是透明度*/
+  animation: animate 3.5s linear infinite;
+}
+
+@keyframes animate {
+  /*顏色漸變*/
+  0% {
+    box-shadow: 0 0 50px #ff3838, inset 0 0 50px #8eb6ff;
+    filter: hue-rotate(0deg); /*應該是指"色環"的角度*/
+  }
+  20% {
+    box-shadow: 0 0 60px #ff3838, inset 0 0 40px #8eb6ff;
+  }
+  40% {
+    box-shadow: 0 0 80px #ff3838, inset 0 0 80px #8eb6ff;
+  }
+  60% {
+    box-shadow: 0 0 50px #ff3838, inset 0 0 50px #8eb6ff;
+  }
+  80% {
+    box-shadow: 0 0 10px #ff3838, inset 0 0 10px #8eb6ff;
+  }
+  100% {
+    box-shadow: 0 0 90px #ff3838, inset 0 0 90px #8eb6ff;
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes font_Animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

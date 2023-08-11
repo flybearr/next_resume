@@ -1,0 +1,278 @@
+.container {
+  margin: 100px auto;
+  width: 420px;
+  height: 600px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transform: perspective(2000px);
+  background: white;
+}
+
+.frontCover {
+  background-image: linear-gradient(-20deg, #aaa9a9 0%, #9bc5c3 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  animation: borderGlow 3s alternate infinite;
+}
+
+.lookingPage {
+  animation: pageChange 0.8s linear;
+}
+
+.book_active {
+  transform: rotateY(-160deg);
+}
+
+@keyframes pageChange {
+  from {
+    transform: perspective(2000px);
+    box-shadow: inset 250px 0 50px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    transform: perspective(2000px);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+  }
+}
+.page1 {
+  animation: borderGlow 3s alternate infinite;
+  webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+  background: white;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.page1::after {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 1.2s;
+  background: linear-gradient(130deg, transparent 30%, transparent 60%);
+  filter: drop-shadow(0px 0px 1px #1f1f1f);
+  display: inline-block;
+  content: "";
+}
+
+.page1:hover::after,
+.page1::after {
+  background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+}
+
+.page1:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+.page1:not(.normal) {
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+.page2 {
+  animation: borderGlow 3s alternate infinite;
+  webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+  background: white;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  z-index: 8;
+}
+
+.page2::after {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 1.2s;
+  background: linear-gradient(130deg, transparent 30%, transparent 60%);
+  filter: drop-shadow(0px 0px 1px #1f1f1f);
+  display: inline-block;
+  content: "";
+}
+
+.page2:hover::after,
+.page2::after {
+  background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+}
+
+.page2:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+.page2:not(.normal) {
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+.page3 {
+  animation: borderGlow 3s alternate infinite;
+  webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+  background: white;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  z-index: 7;
+}
+
+.page3::after {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 1.2s;
+  background: linear-gradient(130deg, transparent 30%, transparent 60%);
+  filter: drop-shadow(0px 0px 1px #1f1f1f);
+  display: inline-block;
+  content: "";
+}
+
+.page3:hover::after,
+.page3::after {
+  background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+}
+
+.page3:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+.page3:not(.normal) {
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+.page4 {
+  animation: borderGlow 3s alternate infinite;
+  webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+  background: white;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.page4::after {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 1.2s;
+  background: linear-gradient(130deg, transparent 30%, transparent 60%);
+  filter: drop-shadow(0px 0px 1px #1f1f1f);
+  display: inline-block;
+  content: "";
+}
+
+.page4:hover::after,
+.page4::after {
+  background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+}
+
+.page4:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+.page4:not(.normal) {
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+.page5 {
+  animation: borderGlow 3s alternate infinite;
+  webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+  background: white;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.page5::after {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 1.2s;
+  background: linear-gradient(130deg, transparent 30%, transparent 60%);
+  filter: drop-shadow(0px 0px 1px #1f1f1f);
+  display: inline-block;
+  content: "";
+}
+
+.page5:hover::after,
+.page5::after {
+  background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+}
+
+.page5:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+.page5:not(.normal) {
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+@keyframes borderGlow {
+  0% {
+    -o-border-image: linear-gradient(45deg, #fff, rgb(247, 247, 163), #ffff52) 1;
+       border-image: linear-gradient(45deg, #fff, rgb(247, 247, 163), #ffff52) 1;
+    box-shadow: 0 0 5px rgb(249, 244, 247);
+  }
+  100% {
+    -o-border-image: linear-gradient(45deg, #ffff00, #ffff52, #ffff52) 1;
+       border-image: linear-gradient(45deg, #ffff00, #ffff52, #ffff52) 1;
+    box-shadow: 0 0 10px rgba(246, 246, 4, 0.7);
+  }
+}/*# sourceMappingURL=book.css.map */

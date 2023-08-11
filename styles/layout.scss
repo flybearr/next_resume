@@ -1,0 +1,94 @@
+.darkMode {
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+}
+.lightMode {
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: black;
+}
+header {
+  width: 100%;
+  height: 60px;
+  background: coral;
+  position: fixed;
+  display: flex;
+  z-index: 50;
+}
+.header_wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0px 5px;
+  display: flex;
+}
+.header_left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+}
+
+.header_right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  text-align: right;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #4b5022;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffda16;
+  border-radius: 10px;
+}
+
+.btn_container {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  width: 70px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 20px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+  .darkImg {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+  }
+  .lightImg {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+  }
+  .none {
+    display: none;
+  }
+}
+.circle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: #aaa;
+  border-radius: 50%;
+  margin-left: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.is-active.btn_container {
+  background-color: Honeydew;
+  // border-color: black;
+}
+.is-active .circle {
+  background-color: black;
+  margin-left: calc(100% - 32px);
+}

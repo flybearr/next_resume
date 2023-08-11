@@ -1,0 +1,100 @@
+body {
+}
+.container {
+  margin: 100px auto;
+  width: 420px;
+  height: 600px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transform: perspective(2000px);
+  background: white;
+}
+.frontCover {
+  background-image: linear-gradient(-20deg, #aaa9a9 0%, #9bc5c3 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transition: 1.2s;
+  transform-origin: left;
+  cursor: pointer;
+  animation: borderGlow 3s alternate infinite;
+}
+
+.lookingPage {
+  animation: pageChange 0.8s linear;
+}
+
+.book_active {
+  transform: rotateY(-160deg);
+}
+@keyframes pageChange {
+  from {
+    transform: perspective(2000px);
+    box-shadow: inset 250px 0 50px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    transform: perspective(2000px);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@for $i from 1 through 5 {
+  .page#{$i} {
+    animation: borderGlow 3s alternate infinite;
+    webkit-box-reflect: below
+      10px
+      linear-gradient(transparent, transparent, #0002);
+    background: white;
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 1.2s;
+    transform-origin: left;
+    cursor: pointer;
+    z-index: calc(10 - $i);
+  }
+
+  .page#{$i}::after {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: 1.2s;
+    background: linear-gradient(130deg, transparent 30%, transparent 60%);
+    filter: drop-shadow(0px 0px 1px #1f1f1f);
+    display: inline-block;
+    content: "";
+  }
+
+  .page#{$i}:hover::after,
+  .page#{$i}::after {
+    background: linear-gradient(130deg, #ddd 30%, transparent 60%);
+  }
+
+  .page#{$i}:hover::after {
+    width: 100px;
+    height: 100px;
+  }
+  .page#{$i}:not(.normal) {
+    background: transparent;
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    border-image: linear-gradient(45deg, #fff, rgb(247, 247, 163), #ffff52) 1;
+    box-shadow: 0 0 5px rgba(249, 244, 247, 1);
+  }
+  100% {
+    border-image: linear-gradient(45deg, #ffff00, #ffff52, #ffff52) 1;
+    box-shadow: 0 0 10px rgba(246, 246, 4, 0.7);
+  }
+}
