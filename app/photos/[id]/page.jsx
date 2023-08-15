@@ -4,7 +4,7 @@ export default function PostId({ params }) {
   const { id } = params;
   const newPhotos = photos.find((p) => p.id === id);
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto">
       <div className="w-1/2 mx-auto border border-gray-700">
         <LoremPic photo={newPhotos} />
       </div>

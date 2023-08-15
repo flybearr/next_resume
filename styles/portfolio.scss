@@ -1,0 +1,12 @@
+.componentFilter {
+  animation: componentTrans 0.8s forwards;
+}
+
+@keyframes componentTrans {
+  from {
+    filter: blur(5px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
