@@ -56,3 +56,93 @@ header {
   width: 50%;
   text-align: right;
 }
+
+@media screen and (max-width: 837px) {
+  [data-theme="dark"] {
+    .bars {
+      color: black;
+      background: #fff;
+    }
+    .navbar_title:active {
+      h3 {
+        background: lightseagreen;
+      }
+    }
+    .navbar_title:hover {
+      h3 {
+        background: lightseagreen;
+      }
+    }
+  }
+
+  [data-theme="light"] {
+    .bars {
+      color: white;
+      background: black;
+    }
+    .navbar_title:hover {
+      h3 {
+        background: red;
+      }
+    }
+    .navbar_title:active {
+      h3 {
+        background: red;
+      }
+    }
+  }
+
+  .navbar_title {
+    padding: 0px;
+    background: transparent;
+    transition: 0.5s;
+  }
+
+  header {
+    padding: 0;
+  }
+  .header_wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+  }
+  .bars {
+    position: absolute;
+
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    left: -100%;
+  }
+  .barsActive {
+    animation: mobNavBarAnimation_out 1s forwards;
+  }
+  .barsDisable {
+    animation: mobNavBarAnimation_in 1s forwards;
+  }
+  .icon_highlight:active {
+    color: red;
+  }
+  .icon_x:hover {
+    color: red;
+  }
+}
+
+@keyframes mobNavBarAnimation_out {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes mobNavBarAnimation_in {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

@@ -1,0 +1,28 @@
+.scroll {
+  font-size: 2rem;
+  color: red;
+  text-align: center;
+}
+.box {
+  height: 1200px;
+}
+.pic {
+  opacity: 0;
+  transition: 0.3s;
+  height: 300px;
+  border: 10px red solid;
+}
+.animation {
+  animation: load 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes load {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(300px);
+  }
+}

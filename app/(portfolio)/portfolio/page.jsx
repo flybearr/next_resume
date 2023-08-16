@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const componentArray = componentInstance;
 
 export default function Page() {
-  const [selComponent, setSelComponent] = useState(2);
+  const [selComponent, setSelComponent] = useState(4);
   const compoenentRef = useRef(null);
   const Component = componentArray[selComponent];
   const componentDown = () => {

@@ -8,16 +8,6 @@ export default function PostsModal({ params }) {
   return (
     <Modal>
       <LoremPic photo={getPhotos} />
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
-      <p>1232232</p>
     </Modal>
   );
 }
