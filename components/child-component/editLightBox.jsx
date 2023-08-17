@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "../../styles/turntable.scss";
 export default function EditLightBox({
