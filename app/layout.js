@@ -17,7 +17,7 @@ export default function RootLayout({ children, mmd }) {
   return (
     <html lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body>
+      <body className={inter.className}>
         <Providers>
           <NavBar />
           <div className="w-full h-[10%]"></div>
