@@ -1,21 +1,49 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import photos from "./_utils/photo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFire } from "@fortawesome/free-solid-svg-icons";
+import "@/styles/home.scss";
 export default function Home() {
   const newPhotos = photos;
+  const fireBtn = (e) => {
+    if (e.target.classList.value.includes("icon_fire_animate")) {
+      e.target.classList.remove("icon_fire_animate");
+    } else {
+      setTimeout(() => {
+        e.target.classList.add("icon_fire_animate");
+      }, 300);
+    }
+  };
   return (
     <main className="flex w-full h-full flex-col items-center justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 auto-rows-max	 gap-6 m-10">
-        {newPhotos.map(({ id, imageSrc }) => (
-          <Link key={id} href={`/photos/${id}`}>
-            <Image
-              alt=""
-              src={imageSrc}
-              height={500}
-              width={500}
-              className="w-full object-cover aspect-square"
-            />
-          </Link>
+      <div className="h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 auto-rows-max	 gap-6 m-10">
+        {newPhotos.map(({ id, imageSrc, name, username }) => (
+          <div className="w-full" key={id}>
+            <Link href={`/photos/${id}`}>
+              <Image
+                alt={imageSrc}
+                src={imageSrc}
+                height={500}
+                width={500}
+                className="w-full object-cover aspect-square"
+              />
+            </Link>
+            <div className="w-full">
+              <div className="w-2/12 h-full" onClick={fireBtn}>
+                <FontAwesomeIcon
+                  icon={faFire}
+                  size="xl"
+                  className="icon_fire"
+                />
+              </div>
+            </div>
+            <div className="w-full">
+              <h3>{name}</h3>
+              <p>Taken by {username}</p>
+            </div>
+          </div>
         ))}
       </div>
     </main>

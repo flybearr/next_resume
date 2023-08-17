@@ -21,8 +21,9 @@ export default function NavBar() {
   };
 
   const NavTitle = [
-    { title: "介紹", href: "/" },
+    { title: "介紹", href: "/introduce" },
     { title: "技能", href: "/skill" },
+    { title: "社群", href: "/" },
     { title: "作品集", href: "/portfolio" },
     {
       title: "筆記連結",
@@ -30,25 +31,85 @@ export default function NavBar() {
     },
   ];
 
-  const Pc = (
+  return (
     <header>
       <div className="header_wrap">
-        <div className="header_left">
-          {NavTitle.map((v, index) => {
-            return (
-              <Link
-                key={`title${index}`}
-                href={v.href}
-                target={v.title === "筆記連結" ? "_blank" : ""}
-                className={`navbar_title ${
-                  pathname === v.href ? "nav_select" : ""
-                }`}
-              >
-                <h3>{v.title}</h3>
-              </Link>
-            );
-          })}
-        </div>
+        {mobile ? (
+          <>
+            <div
+              className={`bars ${navBarOpen ? "barsActive" : "barsDisable"}`}
+            >
+              <div className="w-full h-10">
+                <div className="svg_wrap">
+                  <div className="">
+                    <FontAwesomeIcon
+                      icon={faX}
+                      className="icon_x"
+                      size="xl"
+                      onClick={() => {
+                        setNavBarOpen(false);
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="w-full h-full">
+                  {NavTitle.map((v, index) => {
+                    return (
+                      <Link
+                        key={`title${index}`}
+                        href={v.href}
+                        target={v.title === "筆記連結" ? "_blank" : ""}
+                        className={`navbar_title ${
+                          pathname === v.href ? "nav_select" : ""
+                        }`}
+                      >
+                        <h3
+                          onClick={() => {
+                            setNavBarOpen(false);
+                          }}
+                        >
+                          {v.title}
+                        </h3>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <div className="w-full">
+              <div className="">
+                <FontAwesomeIcon
+                  icon={faBars}
+                  size="2x"
+                  className="icon_highlight"
+                  style={{
+                    margin: "10px 0px 0px 15px",
+                  }}
+                  onClick={() => {
+                    setNavBarOpen(true);
+                  }}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="header_left">
+            {NavTitle.map((v, index) => {
+              return (
+                <Link
+                  key={`title${index}`}
+                  href={v.href}
+                  target={v.title === "筆記連結" ? "_blank" : ""}
+                  className={`navbar_title ${
+                    pathname === v.href ? "nav_select" : ""
+                  }`}
+                >
+                  <h3>{v.title}</h3>
+                </Link>
+              );
+            })}
+          </div>
+        )}
 
         <div className="header_right">
           <button onClick={ChangeColorStyle}></button>
@@ -72,80 +133,4 @@ export default function NavBar() {
       </div>
     </header>
   );
-  const mob = (
-    <header>
-      <div className="header_wrap">
-        <div className={`bars ${navBarOpen ? "barsActive" : "barsDisable"}`}>
-          <div className="w-full h-10">
-            <div className="relative">
-              <FontAwesomeIcon
-                icon={faX}
-                className="icon_x"
-                style={{
-                  position: "absolute",
-                  top: "5px",
-                  right: "10px",
-                }}
-                onClick={() => {
-                  setNavBarOpen(false);
-                }}
-              />
-            </div>
-            <div className="w-full h-f">
-              {NavTitle.map((v, index) => {
-                return (
-                  <Link
-                    key={`title${index}`}
-                    href={v.href}
-                    target={v.title === "筆記連結" ? "_blank" : ""}
-                    className={`navbar_title ${
-                      pathname === v.href ? "nav_select" : ""
-                    }`}
-                  >
-                    <h3>{v.title}</h3>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        <div className="w-full">
-          <div className="">
-            <FontAwesomeIcon
-              icon={faBars}
-              size="2x"
-              className="icon_highlight"
-              style={{
-                margin: "10px 0px 0px 15px",
-              }}
-              onClick={() => {
-                setNavBarOpen(true);
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="header_right">
-          <button onClick={ChangeColorStyle}></button>
-          <div
-            id="btn_container"
-            className={
-              theme === "dark" ? "is-active btn_container" : "btn_container"
-            }
-          >
-            {theme === "dark" ? (
-              <span className={theme === "dark" ? "darkImg" : "none"}>🌜</span>
-            ) : (
-              <span className={theme === "dark" ? "none" : "lightImg"}>🌞</span>
-            )}
-            <div
-              className={theme === "dark" ? "is-active circle" : "circle"}
-              onClick={ChangeColorStyle}
-            ></div>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-  return <>{mobile ? mob : Pc}</>;
 }
