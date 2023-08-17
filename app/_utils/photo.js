@@ -34,13 +34,7 @@ const photos = [
     username: "@saminacodes",
     imageSrc: "https://pbs.twimg.com/media/FFn7X76VgAEVTgs?format=jpg",
   },
-  {
-    id: "6",
-    name: "lafond.eth",
-    href: "https://twitter.com/laf0nd/status/1464640065615929346",
-    username: "@laf0nd",
-    imageSrc: "https://pbs.twimg.com/media/FFNyYEAXsAMdOhV?format=jpg",
-  },
+
   {
     id: "7",
     name: "山岸和利💛",
