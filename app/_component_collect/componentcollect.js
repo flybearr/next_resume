@@ -11,6 +11,7 @@ const Drag = dynamic(() => import("@/components/drag"), {
 const Svg_d3 = dynamic(() => import("@/components/svg_d3"), {
   ssr: false,
 });
+
 const IntersectionObserverLazyload = dynamic(
   () => import("@/components/instersectionObserve"),
   {
@@ -19,9 +20,9 @@ const IntersectionObserverLazyload = dynamic(
 );
 
 export const componentInstance = [
-  Turntable,
-  Book,
-  Drag,
-  Svg_d3,
-  IntersectionObserverLazyload,
+  { name: "轉盤", component: Turntable },
+  { name: "翻書", component: Book },
+  { name: "拖曳小玩意兒", component: Drag },
+  { name: "酷酷A臺灣", component: Svg_d3 },
+  { name: "IntersectionObserver", component: IntersectionObserverLazyload },
 ];

@@ -71,12 +71,9 @@ export default function Turntable() {
         context.fillStyle = `hsl(${(i * 360) / slices}, 50%, 50%)`;
         context.fill();
       }
-
       // 更新旋轉角度
       rotation += 0.4;
-
       setFinalRotation(rotation);
-
       // 循環動畫
       if (isAnimating) {
         id.current = requestAnimationFrame(animate);

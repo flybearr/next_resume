@@ -38,7 +38,7 @@ export default memo(function IntersectionObserverLazyload() {
   }, []);
 
   return (
-    <div>
+    <div className="w-full h-full">
       <p className="scroll">往下scroll</p>
       <div className="box"></div>
       {pic.map((img, index) => {

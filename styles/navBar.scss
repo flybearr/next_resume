@@ -36,11 +36,15 @@ header {
   padding: 0px 30px;
   display: flex;
   z-index: 50;
+  animation: NavBarAnimate 2s ease-in-out forwards;
 }
 .header_wrap {
   width: 100%;
   height: 100%;
   display: flex;
+  opacity: 0;
+  animation: barShow 1s forwards;
+  animation-delay: 2s;
 }
 .header_left {
   display: flex;
@@ -55,6 +59,27 @@ header {
   align-items: center;
   width: 50%;
   text-align: right;
+}
+
+@keyframes NavBarAnimate {
+  0% {
+    width: 10%;
+    opacity: 0;
+    background: transparent;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+    background: coral;
+  }
+}
+@keyframes barShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 837px) {
