@@ -13,11 +13,13 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-spring/parallax": "^9.7.3",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "d3": "^7.8.5",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "leva": "^0.9.35",
     "next": "13.4.12",
     "next-themes": "^0.2.1",
     "postcss": "8.4.27",
@@ -25,7 +27,9 @@
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
     "react-scroll-parallax": "^3.4.2",
+    "react-spring": "^9.7.2",
     "sass": "^1.64.2",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "typed.js": "^2.0.16"
   }
 }

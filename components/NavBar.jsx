@@ -21,12 +21,12 @@ export default function NavBar() {
   };
 
   const NavTitle = [
-    { title: "介紹", href: "/introduce" },
-    { title: "技能", href: "/skill" },
-    { title: "社群", href: "/" },
-    { title: "作品集", href: "/portfolio" },
+    { title: "introduce", href: "/introduce" },
+    { title: "skill", href: "/skill" },
+    { title: "socail", href: "/" },
+    { title: "portf", href: "/portfolio" },
     {
-      title: "筆記連結",
+      title: "Note",
       href: "https://www.notion.so/flybearrrr/b0f3b9c75dc64761aacfcc1d8f3e4ae7?v=9af3380a699b41b0a82822910a08cc46&pvs=4o",
     },
   ];

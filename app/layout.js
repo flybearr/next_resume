@@ -20,8 +20,8 @@ export default function RootLayout({ children, mmd }) {
       <body className={`${inter.className}`}>
         <Providers>
           <NavBar />
-          <div className="w-full h-[10%]"></div>
-          <div className="w-full h-[90%] ">
+          <div className="w-full h-[7%]"></div>
+          <div className="w-full h-[93%] ">
             {children}
             {mmd}
           </div>
