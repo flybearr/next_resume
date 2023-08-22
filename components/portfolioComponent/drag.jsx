@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import "../styles/drag.scss";
+import "../../styles/drag.scss";
 export default function Drag() {
   const [pendingList, setPendingList] = useState([{ id: 1, thing: "打掃" }]);
   const [progressList, setProgressList] = useState([

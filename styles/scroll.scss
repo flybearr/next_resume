@@ -1,10 +1,12 @@
 .body {
-  background-color: #171717;
+  // background-color: #171717;
   height: 100%;
   width: 100%;
   overflow-y: scroll;
 }
-
+// .body::-webkit-scrollbar {
+//   display: none;
+// }
 .full__page {
   width: 100vw;
   height: 100vh;
@@ -42,15 +44,32 @@
   & > * {
     pointer-events: none;
     width: 100%;
+
     inset: 0;
   }
 }
 
+.animated__layers2 {
+  z-index: 10;
+}
+
 .dot {
   background-color: orange;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  // position: relative;
+  height: 100%;
+  // z-index: 100;
+}
+.dot2 {
+  background-color: blue;
+  // position: relative;
+  height: 100%;
+  // z-index: 100;
+}
+.dot3 {
+  background-color: orange;
+  // position: relative;
+  height: 100%;
+  // z-index: 100;
 }
 
 .title {
@@ -62,5 +81,17 @@
     & > span {
       display: block;
     }
+  }
+}
+.arrow_animate {
+  animation: downArrow 2s infinite;
+}
+@keyframes downArrow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100px);
   }
 }

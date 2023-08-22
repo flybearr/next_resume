@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
-import "../styles/turntable.scss";
+import "../../styles/turntable.scss";
 import EditLightBox from "../child-component/editLightBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";

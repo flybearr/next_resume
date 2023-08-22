@@ -39,7 +39,7 @@ export default function Card({ children }) {
   };
   return (
     <div
-      className="w-full h-full  flex items-center justify-center overflow-hidden"
+      className="w-full h-full flex items-center justify-center overflow-hidden"
       ref={ref}
     >
       <animated.div

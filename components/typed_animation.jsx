@@ -12,8 +12,8 @@ export default function Typed_animation() {
     };
   }, []);
   return (
-    <div>
-      <span ref={typedRef}></span>
+    <div className="w-full mt-10">
+      <span className=" text-center" ref={typedRef}></span>
     </div>
   );
 }

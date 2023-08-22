@@ -1,7 +1,7 @@
 "use client";
 import React, { memo, useEffect, useRef } from "react";
 import Image from "next/image";
-import "../styles/IntersectionObserver.scss";
+import "../../styles/IntersectionObserver.scss";
 const pic = [
   { src: "/img/beach1.jpg" },
   { src: "/img/lorem.png" },

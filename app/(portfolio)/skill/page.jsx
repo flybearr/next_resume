@@ -1,23 +1,50 @@
 "use client";
 import React, { useEffect, useRef, memo } from "react";
-import Parallax_icon from "@/components/parallax/Parallax_icon";
-import { ParallaxProvider } from "react-scroll-parallax";
-import { useScroll, animated, useSpring } from "@react-spring/web";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownLong } from "@fortawesome/free-solid-svg-icons";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import {
+  useScroll,
+  animated,
+  useSpring,
+  useChain,
+  useTransition,
+  useSpringRef,
+} from "@react-spring/web";
 import Typed_animation from "../../../components/typed_animation";
 import Card from "@/components/card.jsx";
 import "../../../styles/scroll.scss";
 export default memo(function Page() {
   const containerRef = useRef(null);
-  const [animate, api] = useSpring(() => {
-    y: "100%";
-  });
+
+  const [animate, api] = useSpring(() => ({
+    x: "100%",
+    y: "100%",
+    rotate: 0,
+    opacity: 0,
+  }));
+  const [animate2, api2] = useSpring(() => ({
+    width: "100%",
+    height: "100%",
+  }));
+
   const { scrollYProgress } = useScroll({
     container: containerRef,
     onChange: ({ value: { scrollYProgress } }) => {
-      if (scrollYProgress > 0.8) {
-        api.start({ x: "0", rotate: 0 });
+      if (scrollYProgress > 0.4) {
+        api.start({
+          x: "0",
+          y: "0",
+          rotate: 360,
+          opacity: 1,
+        });
       } else {
-        api.start({ x: "100%", rotate: 360 });
+        api.start({
+          x: "100%",
+          y: "100%",
+          rotate: 0,
+          opacity: 0,
+        });
       }
     },
     default: {
@@ -25,84 +52,33 @@ export default memo(function Page() {
     },
   });
 
-  const { rotate } = useSpring({
-    from: { rotate: 0 },
-    to: { rotate: 1 },
-    loop: { reverse: true },
-    config: { duration: 1500 },
-  });
-
-  // const parallaxRef = useRef(null);
-  // useEffect(() => {
-  //   parallaxRef.current = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         const { target, intersectionRatio } = entry;
-  //         if (intersectionRatio > 0) {
-  //           console.log("a");
-  //           target.style.position = "fixed";
-  //           target.style.top = "50px";
-  //           target.style.left = 0;
-
-  //           parallaxRef.current.unobserve(target);
-  //         }
-  //       });
-  //     },
-  //     { threshold: [0.9] }
-  //   );
-  //   const dom = document.querySelectorAll(".parallax");
-  //   dom.forEach((v, i) => {
-  //     parallaxRef.current.observe(v);
-  //   });
-  //   return () => {
-  //     parallaxRef.current.disconnect();
-  //   };
-  // }, []);
-  // const alignCenter = { display: "flex", alignItems: "center" };
-
   return (
     <div className="body overflow-hidden" ref={containerRef}>
-      {/* <div className="h-[100vh]">
-        <Typed_animation />
-      </div>
-      <div className="h-[100vh]">
-        <Card>
-          <p>123</p>
-        </Card>
-      </div> */}
-      {/* <ParallaxProvider>
-        {Array(2)
-          .fill(1)
-          .map((_, i) => {
-            return (
-              <div className="w-full h-[100vh]" key={"empty_page" + i}></div>
-            );
-          })}
-        <div
-          className="parallax  z-100 my-2xl bg-red-300  px-lg h-[100vh] w-full rounded-md px-bg text-black  flex flex-col justify-center items-center gap-5"
-          id="parallax"
-        >
-          <section className=" flex flex-row items-center justify-evenly w-full">
-            <Parallax_icon ImgSrc={"/img/java.png"} />
-            <Parallax_icon ImgSrc={"/img/c-sharp.png"} />
-            <Parallax_icon ImgSrc={"/img/js.png"} />
-            <Parallax_icon ImgSrc={"/img/python.png"} />
-          </section>
-          <section className=" flex flex-row items-center justify-evenly w-full">
-            <Parallax_icon ImgSrc={"/img/java.png"} />
-            <Parallax_icon ImgSrc={"/img/c-sharp.png"} />
-            <Parallax_icon ImgSrc={"/img/js.png"} />
-            <Parallax_icon ImgSrc={"/img/python.png"} />
-          </section>
+      <animated.div>
+        <div className="flex flex-col justify-center items-center gap-1">
+          <Typed_animation />
+          <FontAwesomeIcon
+            icon={faDownLong}
+            size="4x"
+            className="text-red-600 arrow_animate"
+          />
         </div>
-      </ParallaxProvider> */}
+        <div className="w-full h-[80vh] ">
+          <Card></Card>
+        </div>
+      </animated.div>
+
       <div className="animated__layers">
         <animated.div
           className="bg-teal-300 w-full h-[50%]"
           style={{
-            transform: scrollYProgress.to(
-              (val) => `translateX(${(1 - val) * 100}%)`
-            ),
+            transform: scrollYProgress.to((val) => {
+              if (val < 0.5) {
+                return `translateX(${(1 - val * 2) * 100}%)`;
+              } else {
+                return `translateX(0%)`;
+              }
+            }),
           }}
         >
           <h1 className="title">
@@ -110,30 +86,78 @@ export default memo(function Page() {
               <animated.span style={animate}>Aha!</animated.span>
             </span>
             <span>
-              <animated.span style={animate}>You found me!</animated.span>
+              <animated.span style={animate}>CSS</animated.span>
             </span>
           </h1>
         </animated.div>
         <animated.div
           className="bg-red-300 w-full h-[50%] translate-x-[0%]"
           style={{
-            transform: scrollYProgress.to(
-              (val) => `translateX(${(val - 1) * 100}%)`
-            ),
+            transform: scrollYProgress.to((val) => {
+              if (val < 0.5) {
+                return `translateX(${(val * 2 - 1) * 100}%)`;
+              } else {
+                return `translateX(0%)`;
+              }
+            }),
           }}
         >
           <h1 className="title flex justify-center items-center">
-            <span className="">
-              <animated.span style={animate}>Aha!</animated.span>
-            </span>
             <span>
-              <animated.span style={animate}>You found me!</animated.span>
+              <animated.span style={animate}>program</animated.span>
             </span>
           </h1>
-          <animated.img src="/img/js.png" style={rotate}></animated.img>
+          <div className="mx-auto flex justify-center items-center gap-5">
+            <animated.img src="/img/js.png" style={animate}></animated.img>
+            <animated.img src="/img/java.png" style={animate}></animated.img>
+            <animated.img src="/img/python.png" style={animate}></animated.img>
+            <animated.img src="/img/c-sharp.png" style={animate}></animated.img>
+          </div>
         </animated.div>
       </div>
-      {Array(2)
+      <div className="animated__layers z-10">
+        <animated.div
+          className="dot"
+          style={{
+            clipPath: scrollYProgress.to((val) => {
+              if (val > 0.65) {
+                return `circle(${(val - 0.65) * 2 * 100}%)`;
+              } else {
+                return `circle(0%)`;
+              }
+            }),
+          }}
+        ></animated.div>
+      </div>
+      <div className="animated__layers z-20">
+        <animated.div
+          className="dot2"
+          style={{
+            clipPath: scrollYProgress.to((val) => {
+              if (val > 0.75) {
+                return `circle(${(val - 0.75) * 2.9 * 100}%)`;
+              } else {
+                return `circle(0%)`;
+              }
+            }),
+          }}
+        ></animated.div>
+      </div>
+      <div className="animated__layers z-30">
+        <animated.div
+          className="dot3"
+          style={{
+            clipPath: scrollYProgress.to((val) => {
+              if (val > 0.85) {
+                return `circle(${(val - 0.85) * 4.8 * 100}%)`;
+              } else {
+                return `circle(0%)`;
+              }
+            }),
+          }}
+        ></animated.div>
+      </div>
+      {Array(5)
         .fill(1)
         .map((_, i) => {
           return (
