@@ -1,0 +1,37 @@
+.parallax {
+  width: 100%;
+  height: 100%;
+  div {
+    width: 100%;
+    height: 1000px;
+  }
+}
+
+.after {
+  position: relative;
+  //   transform: translateY(100px);
+  z-index: 0;
+  background: #210002;
+  height: 3333px;
+}
+
+.trailsText {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  line-height: 80px;
+  color: black;
+  font-size: 6em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  // overflow: hidden;
+}
+
+.trailsText > div {
+  padding-left: 1.5rem;
+  display: flex;
+  justify-content: center;
+
+  // overflow: hidden;
+}
