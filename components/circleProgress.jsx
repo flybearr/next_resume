@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/circleProgress.scss";
 export default function CircleProgress({ scroll }) {
-  const r = 90;
+  const r = 30;
   const [deg, setDeg] = useState(0);
   const [strokeDashoffset, setStrokeDashoffset] = useState(0);
   useEffect(() => {
@@ -17,20 +17,23 @@ export default function CircleProgress({ scroll }) {
 
   return (
     <div className="circleBox">
-      <span className="deg">{deg`%`}</span>
+      <span className="deg">{deg + "%"}</span>
       <svg
         id="svg"
-        width="300"
-        height="300"
-        viewPort="0 0 100 100"
+        width="100"
+        height="100"
+        // viewPort="0 0 100 100"
+        // viewbox="0 0 100 100"
         version="1.1"
-        className="flex justify-center items-center"
+        className=""
       >
         <circle
+          width="100"
+          height="100"
           id="circle"
           r={r}
-          cx="150"
-          cy="150"
+          cx="50"
+          cy="50"
           fill="transparent"
           strokeDasharray={2 * r * Math.PI}
           strokeDashoffset="0"
@@ -38,12 +41,12 @@ export default function CircleProgress({ scroll }) {
         <circle
           id="bar"
           r={r}
-          cx="150"
-          cy="150"
+          cx="50"
+          cy="50"
           fill="transparent"
           strokeDasharray={2 * r * Math.PI}
           strokeDashoffset={strokeDashoffset}
-          transform="rotate(-90, 150, 150)"
+          transform="rotate(-90, 50, 50)"
         />
       </svg>
     </div>

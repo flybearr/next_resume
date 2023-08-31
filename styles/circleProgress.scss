@@ -1,23 +1,29 @@
 .circleBox {
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .deg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 0.5rem;
 }
 #svg #circle {
+  width: 100px;
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear;
   stroke: #666;
-  stroke-width: 2em;
+  stroke-width: 0.6em;
 }
 
 #svg #bar {
+  width: 100px;
   stroke: #a563ed;
-  stroke-width: 2em;
+  stroke-width: 0.6em;
 }

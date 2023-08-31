@@ -50,7 +50,7 @@ export default function Page() {
 
   return (
     <div className="body overflow-hidden" ref={containerRef}>
-      <div className="w-[30%] h-[30%] fixed bottom-10 right-0 z-50">
+      <div className="fixed bottom-5 right-2 z-50 flex justify-center items-center">
         <CircleProgress scroll={scroll} />
       </div>
       <animated.div>
