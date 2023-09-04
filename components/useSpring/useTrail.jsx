@@ -1,6 +1,6 @@
 "use client";
 
-import "@/styles/introduce.scss";
+import "@/styles/useTrail.scss";
 import React from "react";
 import { useTrail, animated } from "@react-spring/web";
 export default function Trail({ open, children }) {

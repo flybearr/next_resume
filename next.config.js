@@ -9,6 +9,7 @@ const nextConfig = {
       "plus.unsplash.com",
       "picsum.photos",
       "pbs.twimg.com",
+      "ushinohiroba.com",
     ],
   },
 };

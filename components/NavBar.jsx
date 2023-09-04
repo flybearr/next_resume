@@ -23,7 +23,7 @@ export default function NavBar() {
   const NavTitle = [
     { title: "introduce", href: "/introduce" },
     { title: "skill", href: "/skill" },
-    { title: "socail", href: "/" },
+    { title: "social", href: "/" },
     { title: "portf", href: "/portfolio" },
     {
       title: "Note",

@@ -1,37 +1,114 @@
-.parallax {
+.introduce_banner {
   width: 100%;
-  height: 100%;
-  div {
-    width: 100%;
-    height: 1000px;
+  height: 50px;
+  background-color: rgb(233, 233, 144);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introduce_banner_right {
+  text-align: right;
+}
+.introduce_banner_left {
+  text-align: left;
+}
+
+.slider_from_left {
+  animation: leftIn 2.5s ease-in-out forwards;
+}
+.slider_from_right {
+  animation: rightIn 2.5s ease-in-out forwards;
+}
+
+//---- 循環播放
+.side-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.block {
+  position: relative;
+  display: flex;
+  flex-flow: nowrap;
+  width: 200%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  padding-inline-start: 0px;
+  animation: slider 15s infinite linear;
+  li {
+    width: 25%;
+    display: flex;
+    object-fit: cover;
+  }
+  img {
+    display: block;
+    width: 450px;
   }
 }
 
-.after {
-  position: relative;
-  //   transform: translateY(100px);
-  z-index: 0;
-  background: #210002;
-  height: 3333px;
-}
-
-.trailsText {
-  position: relative;
-  width: 100%;
-  height: 100px;
-  line-height: 80px;
-  color: black;
-  font-size: 6em;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  will-change: transform, opacity;
-  // overflow: hidden;
-}
-
-.trailsText > div {
-  padding-left: 1.5rem;
+.slider2 {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  padding-inline-start: 0px;
+  animation: slider2 15s infinite linear;
+  animation-delay: 15s;
+  li {
+    width: 25%;
+    display: flex;
+    object-fit: cover;
+  }
+  img {
+    display: block;
+    width: 450px;
+  }
+}
 
-  // overflow: hidden;
+@keyframes leftIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes rightIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slider2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
 }

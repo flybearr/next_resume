@@ -33,10 +33,14 @@ export default function Page() {
           className="flex items-center h-full w-10 text-4xl"
           onClick={componentUp}
         >
-          <FontAwesomeIcon
-            icon={faLessThan}
-            className="hover:text-emerald-500 cursor-pointer"
-          />
+          {selComponent === 0 ? (
+            ""
+          ) : (
+            <FontAwesomeIcon
+              icon={faLessThan}
+              className="hover:text-emerald-500 cursor-pointer"
+            />
+          )}
         </div>
 
         <div
@@ -51,10 +55,14 @@ export default function Page() {
           className="flex items-center h-full w-10 text-4xl"
           onClick={componentDown}
         >
-          <FontAwesomeIcon
-            icon={faGreaterThan}
-            className="hover:text-emerald-500 cursor-pointer scale-125"
-          />
+          {selComponent === componentArray.length - 1 ? (
+            ""
+          ) : (
+            <FontAwesomeIcon
+              icon={faGreaterThan}
+              className="hover:text-emerald-500 cursor-pointer scale-125"
+            />
+          )}
         </div>
       </div>
     </>
