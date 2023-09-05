@@ -18,7 +18,7 @@ export default function Home() {
   };
   return (
     <main className="flex w-full h-full flex-col items-center justify-center">
-      <div className="h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 auto-rows-max	 gap-6 m-10">
+      <div className="h-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 auto-rows-max	 gap-6 m-10">
         {newPhotos.map(({ id, imageSrc, name, username }) => (
           <div className="w-full" key={id}>
             <Link href={`/photos/${id}`}>
@@ -31,17 +31,10 @@ export default function Home() {
               />
             </Link>
             <div className="w-full">
-              <div className="w-2/12 h-full" onClick={fireBtn}>
-                <FontAwesomeIcon
-                  icon={faFire}
-                  size="xl"
-                  className="icon_fire"
-                />
-              </div>
-            </div>
-            <div className="w-full">
               <h3>{name}</h3>
-              <p>Taken by {username}</p>
+              <p>
+                Taken by <em>{username}</em>
+              </p>
             </div>
           </div>
         ))}

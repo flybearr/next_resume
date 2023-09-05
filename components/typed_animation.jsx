@@ -1,10 +1,11 @@
 import { useRef, useEffect } from "react";
 import Typed from "typed.js";
-export default function Typed_animation() {
+export default function Typed_animation({ ...props }) {
+  const { text } = props;
   const typedRef = useRef(null);
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["<h1>請將頁面往下捲動</h1>"],
+      strings: ["<h1 className=''>請將頁面往下捲動</h1>"],
       typeSpeed: 100,
       // loop: true,
     });

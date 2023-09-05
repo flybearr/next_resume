@@ -1,17 +1,17 @@
 [data-theme="dark"] {
   .navbar_title:hover {
-    padding: 10px;
+    padding: 6px;
     border-radius: 30px;
-    background: lightseagreen;
+    background: #344648;
   }
   .nav_select {
-    background: lightseagreen;
+    background: #344648;
   }
 }
 
 [data-theme="light"] {
   .navbar_title:hover {
-    padding: 10px;
+    padding: 6px;
     border-radius: 30px;
     background: lightgray;
   }
@@ -30,6 +30,7 @@
 header {
   width: 100%;
   height: 7%;
+  min-height: 62px;
   background: coral;
   position: fixed;
   top: 0;

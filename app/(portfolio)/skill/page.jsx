@@ -13,8 +13,19 @@ export default function Page() {
   const containerRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState(0);
+  const [txtAnimate, txtApi] = useSpring(
+    () => ({
+      x: "100%",
+      y: "100%",
+      rotate: 0,
+      opacity: 0,
+    }),
+    []
+  );
   const [animate, api] = useSpring(
     () => ({
+      width: "180px",
+      height: "180px",
       x: "100%",
       y: "100%",
       rotate: 0,
@@ -34,8 +45,20 @@ export default function Page() {
           rotate: 360,
           opacity: 1,
         });
+        txtApi.start({
+          x: "0",
+          y: "0",
+          rotate: 360,
+          opacity: 1,
+        });
       } else {
         api.start({
+          x: "100%",
+          y: "100%",
+          rotate: 0,
+          opacity: 0,
+        });
+        txtApi.start({
           x: "100%",
           y: "100%",
           rotate: 0,
@@ -80,7 +103,7 @@ export default function Page() {
 
       <div className="animated__layers">
         <animated.div
-          className="bg-teal-300 w-full h-[50%]"
+          className="bg-teal-300 w-full h-[50%] flex flex-col justify-center"
           style={{
             transform: scrollYProgress.to((val) => {
               if (val < 0.5) {
@@ -89,19 +112,48 @@ export default function Page() {
                 return `translateX(0%)`;
               }
             }),
+            opacity: scrollYProgress.to((val) => {
+              if (val < 0.5) {
+                return `${val * 2}`;
+              } else {
+                return `1`;
+              }
+            }),
           }}
         >
-          <h1 className="title">
+          {/* <h1 className="title">
             <span>
               <animated.span style={animate}>Aha!</animated.span>
             </span>
             <span>
               <animated.span style={animate}>CSS</animated.span>
             </span>
+            <h1 className="title flex justify-center items-center">
+            <span>
+              <animated.span style={animate}>program</animated.span>
+            </span>
           </h1>
+          </h1> */}
+          <h1 className="title flex justify-center items-center">
+            <span>
+              <animated.span style={txtAnimate}>css</animated.span>
+            </span>
+          </h1>
+          <div className="mx-auto flex justify-center items-center gap-5">
+            <animated.img
+              src="/img/skill/css.png"
+              style={animate}
+            ></animated.img>
+            <animated.img
+              src="/img/skill/sass.png"
+              style={animate}
+            ></animated.img>
+            <animated.img src="/img/python.png" style={animate}></animated.img>
+            <animated.img src="/img/c-sharp.png" style={animate}></animated.img>
+          </div>
         </animated.div>
         <animated.div
-          className="bg-red-300 w-full h-[50%] translate-x-[0%]"
+          className="bg-red-300 w-full h-[50%] translate-x-[0%] flex flex-col justify-center "
           style={{
             transform: scrollYProgress.to((val) => {
               if (val < 0.5) {
@@ -110,18 +162,34 @@ export default function Page() {
                 return `translateX(0%)`;
               }
             }),
+            opacity: scrollYProgress.to((val) => {
+              if (val < 0.5) {
+                return `${val * 2}`;
+              } else {
+                return `1`;
+              }
+            }),
           }}
         >
           <h1 className="title flex justify-center items-center">
             <span>
-              <animated.span style={animate}>program</animated.span>
+              <animated.span style={txtAnimate}>program</animated.span>
             </span>
           </h1>
           <div className="mx-auto flex justify-center items-center gap-5">
             <animated.img src="/img/js.png" style={animate}></animated.img>
-            <animated.img src="/img/java.png" style={animate}></animated.img>
-            <animated.img src="/img/python.png" style={animate}></animated.img>
-            <animated.img src="/img/c-sharp.png" style={animate}></animated.img>
+            <animated.img
+              src="/img/skill/nodejs.png"
+              style={animate}
+            ></animated.img>
+            <animated.img
+              src="/img/skill/react.png"
+              style={animate}
+            ></animated.img>
+            <animated.img
+              src="/img/skill/php.png"
+              style={animate}
+            ></animated.img>
           </div>
         </animated.div>
       </div>

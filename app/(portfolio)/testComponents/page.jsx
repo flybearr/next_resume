@@ -1,18 +1,14 @@
 import React from "react";
-import CircleProgress from "../../../components/circleProgress";
+
+import "@/styles/test.scss";
+import { Permanent_Marker } from "next/font/google";
+const font = Permanent_Marker({ subsets: ["latin"], weight: ["400"] });
+
 export default function page() {
   return (
     <div className="w-full h-full">
-      <div className="fixed right-0 top-20">
-        <CircleProgress scroll />
-      </div>
-      {Array(5)
-        .fill(1)
-        .map((_, i) => {
-          return (
-            <div className="w-full h-[100vh]" key={"empty_page" + i}></div>
-          );
-        })}
+      <div className="bg"></div>
+      <h1 className="second-font">menu</h1>
     </div>
   );
 }

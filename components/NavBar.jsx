@@ -58,7 +58,7 @@ export default function NavBar() {
                       <Link
                         key={`title${index}`}
                         href={v.href}
-                        target={v.title === "筆記連結" ? "_blank" : ""}
+                        target={v.title === "Note" ? "_blank" : ""}
                         className={`navbar_title ${
                           pathname === v.href ? "nav_select" : ""
                         }`}

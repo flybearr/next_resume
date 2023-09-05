@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import "@/styles/introduce.scss";
+import "@/styles/parallax.scss";
 import {
   ParallaxBanner,
   ParallaxBannerLayer,
@@ -13,15 +13,15 @@ export default function ParallaxPage() {
     { image: "/parallax/parallax2.png", speed: 11 },
     { image: "/parallax/parallax3.png", speed: 16 },
     { image: "/parallax/parallax4.png", speed: 20 },
-    { image: "/parallax/parallax5.png", speed: 30 },
-    { image: "/parallax/parallax6.png", speed: 36 },
-    { image: "/parallax/parallax7.png", speed: 45 },
+    { image: "/parallax/parallax5.png", speed: 25 },
+    { image: "/parallax/parallax6.png", speed: 30 },
+    { image: "/parallax/parallax7.png", speed: 40 },
   ];
 
   return (
     <div className="w-full h-full">
       <ParallaxProvider>
-        <ParallaxBanner className="parallax">
+        <ParallaxBanner className="parallax ">
           {pic_layer.map((v, i) => {
             return (
               <ParallaxBannerLayer

@@ -19,6 +19,17 @@
 .slider_from_right {
   animation: rightIn 2.5s ease-in-out forwards;
 }
+.hoverScale {
+  img {
+    transition: 0.5s;
+    transform: scale(1);
+  }
+}
+.hoverScale:hover {
+  img {
+    transform: scale(1.2);
+  }
+}
 
 //---- 循環播放
 .side-slider {
@@ -98,7 +109,6 @@
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-100%);
   }
@@ -107,7 +117,6 @@
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-200%);
   }

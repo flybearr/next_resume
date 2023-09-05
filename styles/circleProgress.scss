@@ -3,6 +3,7 @@
   height: 100px;
   text-align: center;
   position: relative;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +25,6 @@
 
 #svg #bar {
   width: 100px;
-  stroke: #a563ed;
+  stroke: #feb03c;
   stroke-width: 0.6em;
 }

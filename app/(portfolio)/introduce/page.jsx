@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import PortfolioList from "@/components/portfolioList";
+import Banner from "@/components/banner";
 import "@/styles/introduce.scss";
 export default function Page() {
   const obsRef = useRef(null);
@@ -29,20 +31,15 @@ export default function Page() {
     };
   }, []);
   return (
-    <div className="w-full h-full overflow-hidden">
-      {/* <Image className="introduce_pic" data-src="" alt="" /> */}
-      <p></p>
-      {/* <div className="introduce_banner slider_from_left">
-        <h2>Hola</h2>
-      </div>
-      <div className="introduce_banner slider_from_right">
-        <h2>Hola</h2>
-      </div> */}
+    <div className="w-full  overflow-hidden">
       <div className="obs"></div>
+      <Banner />
+      <h1 className="text-center font-bold second-font">切版</h1>
+      <PortfolioList />
       {/* 循環播放 */}
-      <section class="side-slider">
-        <div class="block">
-          <ul class="slider">
+      <section className="side-slider">
+        <div className="block">
+          <ul className="slider">
             <li>
               <Image
                 width={450}
@@ -76,7 +73,7 @@ export default function Page() {
               />
             </li>
           </ul>
-          <ul class="slider">
+          <ul className="slider">
             <li>
               <Image
                 width={450}
