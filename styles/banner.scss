@@ -1,21 +1,9 @@
 $blue: #2592db;
 $yellow: #e6cd69;
 $green: #9fca56;
-
-// .banner-bg {
-//   width: 100%;
-//   height: 100%;
-//   background-image: url("/img/mac.jpg");
-//   background-size: cover;
-//   background-position: center 65%;
-//   position: relative;
-//   z-index: 1;
-// }
-
 .overlayer {
   width: 100%;
   height: 100%;
-
   background-image: url("/img/mac.jpg");
   background-size: cover;
   background-position: center center;
@@ -35,14 +23,13 @@ $green: #9fca56;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     .mac-btn {
       width: 100%;
       // height: 20px;
     }
     .codeArea {
       padding: 10px;
-      span {
-      }
     }
   }
 }
@@ -69,8 +56,5 @@ $green: #9fca56;
   }
   .codeArea {
     padding: 10px;
-    span {
-      font-size: 0.7rem;
-    }
   }
 }

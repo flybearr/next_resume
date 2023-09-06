@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import Typed from "typed.js";
 import "@/styles/banner.scss";
+import DockComponent from "@/components/dock";
 export default function Banner() {
   const typeRef = useRef(null);
   useEffect(() => {
@@ -23,7 +24,6 @@ export default function Banner() {
   return (
     <div class="w-full">
       <div class="w-full h-screen">
-        {/* <div class="banner-bg"> */}
         <div class="overlayer">
           <div className="pd">
             <div className="mac-btn">
@@ -62,8 +62,8 @@ export default function Banner() {
               </svg>
             </div>
             <div class="codeArea" ref={typeRef}></div>
+            <DockComponent />
           </div>
-          {/* </div> */}
         </div>
       </div>
     </div>

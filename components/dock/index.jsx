@@ -1,10 +1,5 @@
 "use client";
 import React from "react";
-
-import "@/styles/test.scss";
-import { Permanent_Marker } from "next/font/google";
-const font = Permanent_Marker({ subsets: ["latin"], weight: ["400"] });
-
 import { Dock } from "@/components/dock/dockContext";
 import DockCard from "@/components/dock/dockCard";
 import Cards from "@/components/dock/card";
@@ -19,11 +14,9 @@ const GRADIENTS = [
   null,
   "https://products.ls.graphics/mesh-gradients/images/36.-Pale-Chestnut-p-130x130q80.jpeg",
 ];
-export default function page() {
+export default function DockComponent() {
   return (
     <div className="w-full h-full">
-      <div className="bg"></div>
-      <h1 className="second-font">menu</h1>
       <Dock>
         {GRADIENTS.map((src, index) =>
           src ? (

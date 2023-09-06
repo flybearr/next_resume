@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import PortfolioList from "@/components/portfolioList";
 import Banner from "@/components/banner";
+
 import "@/styles/introduce.scss";
 export default function Page() {
   const obsRef = useRef(null);
@@ -34,6 +35,7 @@ export default function Page() {
     <div className="w-full  overflow-hidden">
       <div className="obs"></div>
       <Banner />
+
       <h1 className="text-center font-bold second-font">切版</h1>
       <PortfolioList />
       {/* 循環播放 */}
