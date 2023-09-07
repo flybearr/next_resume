@@ -6,6 +6,12 @@ import Banner from "@/components/banner";
 
 import "@/styles/introduce.scss";
 export default function Page() {
+  const web_pic = [
+    "https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5535@3x.png",
+    "https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5733@3x.png",
+    "https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5365@3x.png",
+    "https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/_DSC5122@3x.png",
+  ];
   const obsRef = useRef(null);
   useEffect(() => {
     obsRef.current = new IntersectionObserver(
@@ -41,74 +47,21 @@ export default function Page() {
       {/* 循環播放 */}
       <section className="side-slider">
         <div className="block">
-          <ul className="slider">
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5535@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5733@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5365@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/_DSC5122@3x.png"
-                alt=""
-              />
-            </li>
-          </ul>
-          <ul className="slider">
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5535@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5733@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/C_DSC5365@3x.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <Image
-                width={450}
-                height={300}
-                src="https://ushinohiroba.com/wp-content/themes/twentytwenty/assets/images/_DSC5122@3x.png"
-                alt=""
-              />
-            </li>
-          </ul>
+          {Array(2)
+            .fill(1)
+            .map((v, i) => {
+              return (
+                <ul className="slider" key={"ul_slider" + i}>
+                  {web_pic.map((v, i) => {
+                    return (
+                      <li key={"li_slider" + i}>
+                        <Image width={450} height={300} src={v} alt="" />
+                      </li>
+                    );
+                  })}
+                </ul>
+              );
+            })}
         </div>
       </section>
     </div>

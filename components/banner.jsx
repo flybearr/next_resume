@@ -62,8 +62,8 @@ export default function Banner() {
               </svg>
             </div>
             <div class="codeArea" ref={typeRef}></div>
-            <DockComponent />
           </div>
+          <DockComponent />
         </div>
       </div>
     </div>

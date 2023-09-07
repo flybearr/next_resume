@@ -10,6 +10,7 @@ const nextConfig = {
       "picsum.photos",
       "pbs.twimg.com",
       "ushinohiroba.com",
+      "products.ls.graphics",
     ],
   },
 };

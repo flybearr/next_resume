@@ -1,5 +1,6 @@
 "use clinet";
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import { useMousePosition } from "../hooks/useMousePosition";
 import { useWindowResize } from "../hooks/useResize";
 
@@ -10,9 +11,9 @@ import {
 } from "react-spring";
 import { useDock } from "../dockContext";
 import "./dockCard.scss";
-const INITIAL_WIDTH = 32;
+const INITIAL_WIDTH = 36;
 
-export default function DockCard({ children }) {
+export default function DockCard({ children, link }) {
   const cardRef = useRef(null);
   const [elCenterX, setElCenterX] = useState(0);
   const size = useSpringValue(INITIAL_WIDTH, {
@@ -98,20 +99,22 @@ export default function DockCard({ children }) {
     };
   }, []);
   return (
-    <div className="dock-card-container">
-      <animated.button
-        ref={cardRef}
-        className="dock-card"
-        onClick={handleClick}
-        style={{
-          width: size,
-          height: size,
-          y,
-        }}
-      >
-        {children}
-      </animated.button>
-      <animated.div className="dock-dot" style={{ opacity }} />
-    </div>
+    <Link href={link} target="_blank">
+      <div className="dock-card-container">
+        <animated.button
+          ref={cardRef}
+          className="dock-card"
+          onClick={handleClick}
+          style={{
+            width: size,
+            height: size,
+            y,
+          }}
+        >
+          {children}
+        </animated.button>
+        <animated.div className="dock-dot" style={{ opacity }} />
+      </div>
+    </Link>
   );
 }

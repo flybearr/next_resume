@@ -15,8 +15,8 @@ $green: #9fca56;
     background: black;
     border: 1px solid seashell;
     border-radius: 10px;
-    position: absolute;
     padding: 5px 10px;
+    position: absolute;
     z-index: 2;
     top: 45%;
     left: 52%;
@@ -24,9 +24,9 @@ $green: #9fca56;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    color: white;
     .mac-btn {
       width: 100%;
-      // height: 20px;
     }
     .codeArea {
       padding: 10px;
@@ -47,10 +47,6 @@ $green: #9fca56;
 }
 
 @media (max-height: 546px) {
-  .overlayer {
-    // background-size: contain;
-    // background-repeat: no-repeat;
-  }
   .pd {
     opacity: 0;
   }

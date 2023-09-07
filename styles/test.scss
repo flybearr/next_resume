@@ -1,7 +1,16 @@
-.bg {
-  width: 50px;
-  height: 50px;
-  background-size: cover;
-  background-image: url("/img/skill/react.png");
-  background-position: center center;
+.area {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.everyTag {
+  width: 50%;
+  display: flex;
+  label {
+    width: 150px;
+  }
+  input {
+    border: 1px solid black;
+  }
 }

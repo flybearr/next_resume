@@ -48,6 +48,7 @@ export const Dock = ({ children }) => {
         }}
         style={{
           x: "-50%",
+          y: hovered ? "0" : "80%",
           scale: zoomLevel
             .to({
               range: [DOCK_ZOOM_LIMIT[0], 1, DOCK_ZOOM_LIMIT[1]],

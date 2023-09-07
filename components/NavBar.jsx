@@ -25,8 +25,9 @@ export default function NavBar() {
     { title: "skill", href: "/skill" },
     { title: "social", href: "/" },
     { title: "portf", href: "/portfolio" },
+    { title: "小遊戲", href: "/game" },
     {
-      title: "Note",
+      title: "筆記",
       href: "https://www.notion.so/flybearrrr/b0f3b9c75dc64761aacfcc1d8f3e4ae7?v=9af3380a699b41b0a82822910a08cc46&pvs=4o",
     },
   ];
@@ -58,7 +59,7 @@ export default function NavBar() {
                       <Link
                         key={`title${index}`}
                         href={v.href}
-                        target={v.title === "Note" ? "_blank" : ""}
+                        target={v.title === "筆記" ? "_blank" : "_self"}
                         className={`navbar_title ${
                           pathname === v.href ? "nav_select" : ""
                         }`}
@@ -99,7 +100,7 @@ export default function NavBar() {
                 <Link
                   key={`title${index}`}
                   href={v.href}
-                  target={v.title === "筆記連結" ? "_blank" : ""}
+                  target={v.title === "筆記" ? "_blank" : ""}
                   className={`navbar_title ${
                     pathname === v.href ? "nav_select" : ""
                   }`}

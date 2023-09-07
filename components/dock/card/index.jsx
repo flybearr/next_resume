@@ -1,10 +1,11 @@
 import React from "react";
 import "./cards.scss";
+import Image from "next/image";
 export default function Cards({ src }) {
   return (
     <span className="card">
-      <img className="card__blur" src={src} alt="" />
-      <img className="card__img" src={src} alt="" />
+      {/* <Image className="card__blur" src={src} alt="" width={0} height={0} /> */}
+      <Image className="card__img" src={src} alt="" width={0} height={0} />
     </span>
   );
 }

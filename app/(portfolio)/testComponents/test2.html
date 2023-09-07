@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>訂購單</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
+    <style>
+        .everyTag {
+            width: 50%;
+            display: flex;
+            /* justify-content: center; */
+        }
+    </style>
+    <!-- <style>
+      body {
+        background-color: #ccc;
+      }
+      .page2 {
+        page-break-before: always;
+      }
+
+      h1 {
+        color: pink;
+        text-align: center;
+      }
+      .userInput {
+        background-color: white;
+        border: 1px solid black;
+        width: 500px;
+        height: 300px;
+      }
+    </style> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="OrderTable">
+            <h2>基本資料表</h2>
+            <div>
+                <label for="">訂購部分代號</label>
+                <select id="options" name="options">
+                    <option value="R01">R01</option>
+                    <option value="R02">R02</option>
+                </select>
+                <span>營業B01/研發R01</span>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="">訂單日期</label>
+                    <input type="date" id="date" name="date" value="" required />
+                </div>
+                <div>
+                    <label for="" class="normal-label">設備交期</label>
+                    <input type="date" id="date" name="date" value="" class="normal-input" required />
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="Client">客戶名稱</label>
+                    <select id="Client" name="Client">
+                        <option value="COLD-B001">來穎科技</option>
+                        <option value="COLD-B002">台化化學纖維</option>
+                        <option value="COLD-B003">進金生</option>
+                        <option value="COLD-B004">中美晶</option>
+                        <option value="COLD-B005">嘉義南亞</option>
+                        <option value="COLD-B006">亞力電機</option>
+                        <option value="COLD-B007">南亞光電</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="caseName">案件名稱</label>
+                    <input type="text" id="caseName" name="caseName" />
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="ClientID">客戶編號</label>
+                    <input type="text" id="ClientID" name="ClientID" />
+                </div>
+                <div>
+                    <label for="">配合施工單位</label>
+                    <input type="text" id="caseName" name="caseName" />
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="">業務編號</label>
+                    <select id="cusumer" name="cusumer">
+                        <option value="COLD-S001">邱俊明</option>
+                        <option value="COLD-S002">林彥廷</option>
+                        <option value="COLD-S003">楊翔鈞</option>
+                        <option value="COLD-S004">陳宏遠</option>
+                        <option value="COLD-S005">陳信志</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">配合技師(機電)</label>
+                    <input type="text" id="MechatronicTechnician" name="MechatronicTechnician" />
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="delivery">送貨地點</label>
+                    <input type="text" id=delivery" name="delivery" />
+                </div>
+                <div>
+                    <label for="FireTechnician">配合技師(消防)</label>
+                    <input type="text" id="FireTechnician" name="FireTechnician" />
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <label for="">案場聯絡人</label>
+                    <input type="text" id="contactName" name="contactName" />
+                </div>
+                <div>
+                    <label for="VPC">配合技師(VPC)</label>
+                    <input type="text" id="VPC" name="VPC" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bussiness_order">
+            <h2>商業儲能</h2>
+            <div class="order_list d-flex">
+                <div class="order">
+                    <h3>訂單(1)</h3>
+                    <div>
+                        <label for="">訂購數量</label>
+                        <input type="text" />
+                        <span>PCS</span>
+                    </div>
+                    <div style="margin-bottom: 20px">
+                        <label for="">室內/室外</label>
+                        <input type="text" />
+                    </div>
+
+                    <div>
+                        <p>品名</p>
+                        <div style="padding-bottom: 15px">
+                            <p>PSC規格</p>
+
+                            <div style="padding-left: 20px">
+                                <div>
+                                    <label for="">OZTEK</label><input type="text" /><span>PCS</span>
+                                </div>
+                                <div>
+                                    <label for="">利佳興業</label><input type="text" /><span>PCS</span>
+                                </div>
+                                <div>
+                                    <label for="">無</label><input type="text" /><span>PCS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding-bottom: 15px">
+                        <label for="">電池模組</label><input type="text" /><span>PCS</span>
+                    </div>
+                </div>
+                <div class="order">
+                    <h3>訂單(2)</h3>
+                    <div>
+                        <label for="">訂購數量</label>
+                        <input type="text" />
+                        <span>PCS</span>
+                    </div>
+                    <p>品名</p>
+                    <div></div>
+                    <div></div>
+                    <div><label for="">電池模組</label><input type="text" /></div>
+                </div>
+                <div class="order">
+                    <h3>訂單(3)</h3>
+                    <div>
+                        <label for="">訂購數量</label>
+                        <input type="text" />
+                        <span>PCS</span>
+                    </div>
+                    <p>品名</p>
+                    <div></div>
+                    <div></div>
+                    <div><label for="">電池模組</label><input type="text" /></div>
+                </div>
+                <div class="order">
+                    <h3>訂單(4)</h3>
+                    <div>
+                        <label for="">訂購數量</label>
+                        <input type="text" />
+                        <span>PCS</span>
+                    </div>
+                    <p>品名</p>
+                    <div></div>
+                    <div></div>
+                    <div><label for="">電池模組</label><input type="text" /></div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <label for="">注意事項(條列舉例)</label>
+                <textarea id="textArea" name="textArea" rows="6" cols="50"></textarea>
+            </div>
+            <div class="notes">
+                <label for="">注意事項(條列舉例)</label>
+                <textarea id="textArea" name="textArea" rows="6" cols="50"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Ted" />
+            <button id="print_demo">Create Demo</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+        integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $("#print_demo").click(function () {
+            const nameForm = new FormData();
+            nameForm.append("name", $("#name").val());
+
+            axios.post("/api/print_pdf", nameForm).then(function (response) {
+                let printWindow = window.open();
+                printWindow.document.write(response.data);
+                printWindow.print();
+                printWindow.close();
+            });
+        });
+    </script>
+</body>
+
+</html>

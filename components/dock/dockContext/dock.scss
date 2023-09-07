@@ -1,26 +1,31 @@
 .dock {
   position: fixed;
-  z-index: 3;
-  bottom: 0px;
+  z-index: 100;
   left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  transform: translate(-50%);
+  transition: 0.5s;
   align-items: flex-end;
-  height: 58px;
+  height: 48px;
   display: flex;
+  justify-content: space-between;
   padding: 10px;
   padding-bottom: 6px;
   gap: 12px;
-  background-color: rgba(154, 152, 152, 0.92);
+  background-color: rgba(0, 0, 0, 0.245);
   will-change: contents;
   box-sizing: content-box;
   border-radius: 12px;
-  //   transform-origin: center bottom;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 860px) {
   .dock {
-    padding: 2px;
-    padding-bottom: 0px;
-    height: 32px;
+    z-index: -100;
+  }
+}
+
+@media (max-height: 550px) {
+  .dock {
+    // m-width: 250px;
   }
 }

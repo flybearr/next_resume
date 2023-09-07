@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    .container {
+        width: 80%;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0 auto;
+        /* height: 100%; */
+    }
+
+    .area {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .everyTag {
+        width: 50%;
+        display: flex;
+        /* justify-content: center; */
+    }
+
+    .normal-label {
+        width: 30%;
+    }
+
+    .normal-input {
+        width: 40%;
+    }
+
+    input {
+        box-sizing: border-box;
+    }
+
+    #engineerName {
+        width: 40%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="area" id="area">
+
+        </div>
+
+    </div>
+    <script>
+        const area = document.querySelector("#area")
+        // const everyTag = document.querySelector("#everyTag")s
+        // console.log(label);
+        const array1 = [
+            "訂單日期",
+            "設備交期",
+            "客戶名稱",
+            "案件名稱",
+            "客戶編號",
+            "配合施工單位",
+            "人員編號",
+            "配合技師(機電)",
+            "送貨地點",
+            "配合技師(消防)",
+            "案場聯絡人",
+            "配合技師(VPC)",
+        ];
+        const engineer = [
+            { name: "請選擇", id: "" },
+            { name: "邱俊明", id: "COLD-S001" },
+            { name: "林彥廷", id: "COLD-S002" },
+            { name: "楊翔鈞", id: "COLD-S003" },
+            { name: "陳宏遠", id: "COLD-S004" },
+        ];
+        // for迴圈是新增DOM
+        for (let i = 0; i < array1.length; i++) {
+            const everyTag = document.createElement("div")
+            everyTag.classList.add("everyTag")
+            //lable
+            const newLabel = document.createElement("label")
+            const txt = document.createTextNode(array1[i])
+            newLabel.appendChild(txt)
+            newLabel.classList.add("normal-label")
+            //input 
+            let newInput = null
+
+            if (i === 7) {
+                newInput = document.createElement("select")
+                newInput.id = "engineerName"
+                engineer.map((v) => {
+                    const opt = document.createElement("option")
+                    const optTxt = document.createTextNode(v.name)
+                    opt.appendChild(optTxt)
+                    opt.value = v.id
+                    newInput.appendChild(opt)
+                })
+            } else if (i === 6) {
+                newInput = document.createElement("input")
+                newInput.type = "text"
+                newInput.id = "engineerId"
+                newInput.classList.add("normal-input")
+            }
+            else {
+                newInput = document.createElement("input")
+                newInput.type = "text"
+                newInput.classList.add("normal-input")
+            }
+            //everyTag
+            everyTag.appendChild(newLabel)
+            everyTag.appendChild(newInput)
+            area.appendChild(everyTag)
+        }
+
+        const engineerName = document.querySelector("#engineerName")
+        engineerName.addEventListener("change", function (e) {
+            const engineerId = document.querySelector("#engineerId")
+            engineerId.value = e.target.value
+        })
+    </script>
+</body>
+
+</html>
